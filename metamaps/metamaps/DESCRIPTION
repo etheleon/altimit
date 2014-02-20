@@ -1,0 +1,14 @@
+Package: Metamaps
+Type: Package
+Title: METAMAPS: Toolset for exploring metagenomic data and analyses
+Version: 2.2.9
+Date: 2013-04-27
+Author: Wesley Chin Lui GOI
+Maintainer: Wesley Goi <picy2k@gmail.com>
+Description:  Useful for building Metabolic Pathways and Querying Metamaps graphdatabase
+License: GPLv2
+LazyLoad: yes
+Packaged: 2013-07-24 06:36:10 UTC; uesu
+Imports: 	igraph, 
+		RJSONIO,
+		RCurl
