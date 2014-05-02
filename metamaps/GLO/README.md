@@ -13,8 +13,8 @@ Installation
 
 ###Databases
 
-* [NR](ftp://lucid.bic.nus.edu.sg/biomirrors/blast/db/FASTA/nr.gz "nr file")
-* [Taxonomy](ftp://lucid.bic.nus.edu.sg/biomirrors/taxonomy/ncbi/gi_taxid_prot.dmp.gz)
+* [NR](http://bit.ly/1rV50Tu "nr file")
+* [Taxonomy](http://bit.ly/1mjqi9U)
 
 ###Tools
 * [RAPSearch2](http://omics.informatics.indiana.edu/mg/RAPSearch2/ "Rapsearch2") 
