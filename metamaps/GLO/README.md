@@ -3,8 +3,12 @@ Introduction
 
 
 GLOgen generates for each unique query: 
+
 1. a GLO signature 
 
+
+Description 
+------
 Takes in tablular blast outputs generated from Rapsearch2 (.m8 format)
 Example:
 
