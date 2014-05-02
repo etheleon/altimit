@@ -13,13 +13,13 @@ Installation
 
 ###Databases
 
-* [NCBI NR](ftp://lucid.bic.nus.edu.sg/biomirrors/blast/db/FASTA/nr.gz "nr file")
-* [NCBI Taxonomy protein](ftp://lucid.bic.nus.edu.sg/biomirrors/taxonomy/ncbi/gi_taxid_prot.dmp.gz)
+* [NR](ftp://lucid.bic.nus.edu.sg/biomirrors/blast/db/FASTA/nr.gz "nr file")
+* [Taxonomy](ftp://lucid.bic.nus.edu.sg/biomirrors/taxonomy/ncbi/gi_taxid_prot.dmp.gz)
 
 ###Tools
-####Generates tabluar blast output required for GLOgen
-* [rapsearch2](http://omics.informatics.indiana.edu/mg/RAPSearch2 "Rapsearch2 DL site) 
+* [RAPSearch2](http://omics.informatics.indiana.edu/mg/RAPSearch2/ "Rapsearch2") 
 
+Generates tabluar blast output required for GLOgen
 Example Blast .m8 output from Rapsearch2
 ```
 # RAPSearch
@@ -31,9 +31,8 @@ HWI-ST884:57:1:1101:10716:1994#0/1      gi|383762330|ref|YP_005441312.1|        
     1151    -1.18   41.2022
 ```
 
-####Stores and organises the 
 * [NEO4J](http://www.neo4j.org/download)
 * [iomics4j](https://github.com/bowenli37/iomics4j)
-
+Stores and organises data for processing
 
 
