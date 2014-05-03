@@ -19,7 +19,11 @@ rapsearch -q query.fa -d nr -o output_file -z <number of threads>
 NOTE: Use `lscpu` to check the number of cores on machine 
 
 2. Set up Neo4j database
-remember to let other computers query it. see the config file
+[iomics4j](https://github.com/bowenli37/iomics4j)
+
+3. Run GLOgen.pl
+...NOTE: Requires perl v5.10 and above. 
+...Usage:
 
 
 Description 
