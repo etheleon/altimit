@@ -1,10 +1,25 @@
-Introduction 
+GLOgen: A plugin for LCA metagenomics
 ======
-
+GLOgen is a part of a suite of command-line tools meant to help in the analysis of metagenomic sequencing data. 
+GLOgen displays "lost" data when carrying out LCA algorithms in metagenomics. Reads which not summarisable at the genus (parameter specifiable) rank in the taxonomic tree can be annotated with the combination of genera it passes through before being LCA-ed.
 
 GLOgen generates for each unique query: 
-
 1. a GLO signature 
+
+Using GLOgen
+------
+1. Run Rapsearch or any other blast-like annoation software to give tabbed blast output
+This generates the sequences annotation against the specified database ie. NR. 
+
+```
+prerapsearch -d nr -n nr.rap
+Builds suffix tree of database
+rapsearch -q query.fa -d nr -o output_file -z <number of threads>
+```
+NOTE: Use `lscpu` to check the number of cores on machine 
+
+2. Set up Neo4j database
+remember to let other computers query it. see the config file
 
 
 Description 
@@ -33,14 +48,23 @@ Installation
 ###Tools
 * [RAPSearch2](http://omics.informatics.indiana.edu/mg/RAPSearch2/ "Rapsearch2") 
 
-Requires boost library for installation
+####RAPSearch2 Installation 
+#####Prequisites: Requires boost library for installation
+* [Boost C++ library](http://www.boost.org/)	
 
-Run prerapsearch to build suffix tree (huge file if you're going to be building it using NR db)
+######Boost Installation
+...Note you need to install the following libraries:
+..* serialization 
+..* thread 
+..* system 
+..* chrono 
 
--z option specifies the number of cores required. 
-
+```
+bootstrap.sh --prefix=$HOME/<path to your installation dir> --libdir=$HOME/local/lib --with-libraries=signals,thread,python,system,serialization,chrono
+```
 
 * [NEO4J](http://www.neo4j.org/download)
 * [iomics4j](https://github.com/bowenli37/iomics4j)
 Stores and organises data for processing
+
 
