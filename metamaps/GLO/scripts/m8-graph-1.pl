@@ -5,7 +5,7 @@ use v5.10;
 
 die "Usage m8-graph.pl <rapsearch_output.m8> <gitaxid file>\n" unless $#ARGV == 1;
 
-my ($server, $meight, $gitaxid) = @ARGV;
+my ($meight, $gitaxid) = @ARGV;
 
 use autodie;
 
@@ -15,6 +15,7 @@ open GITAXID, $gitaxid;
 while(<GITAXID>) {
     chomp;
     my ($gi, $taxid) = split(/\t/);
+    print $taxid;
     $gitaxidhash{$gi} = $taxid;
 }
 #-----------------------------------------------------------------------------------------------------------------------------
