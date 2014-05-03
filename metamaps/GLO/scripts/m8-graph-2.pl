@@ -3,16 +3,16 @@
 use strict;
 use v5.10;
 use autodie;
+
 use REST::Neo4p;
 use REST::Neo4p::Query;
 REST::Neo4p->connect($server);
 
 my %basetaxahash;
 
-
 open INPUT, $ARGV[0];
-while(<>) { 
-if($. != 1) { 
+while(<INPUT>) { 
+if($. != 1) { #Skips header
     chomp;
     my ($read, $gi, $basetaxa, $bitscore)  = split /\t/;
     $basetaxahash{$basetaxa}++;
@@ -29,5 +29,11 @@ foreach my $basetaxa (keys %basetaxahash) {
 	}
     }
 
-foreach (keys %basetaxahash) { 
-   say "$basetaxahash{$_}\t
+seek INPUT 0,0;
+
+while(<INPUT>){
+    chomp;
+    my ($read, $gi, $basetaxa, $bitscore)  = split /\t/;
+    say "$_\t$basetaxahash{$basetaxa}";
+}
+close INPUT;
