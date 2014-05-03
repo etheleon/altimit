@@ -2,12 +2,11 @@
 
 use strict;
 use v5.10;
+use autodie;
 
 die "Usage m8-graph.pl <rapsearch_output.m8> <gitaxid file>\n" unless $#ARGV == 1;
 
 my ($meight, $gitaxid) = @ARGV;
-
-use autodie;
 
 #Initialise GI<->taxid hash----------------------------------------------------------------------------------------------------
 my %gitaxidhash;
@@ -15,7 +14,6 @@ open GITAXID, $gitaxid;
 while(<GITAXID>) {
     chomp;
     my ($gi, $taxid) = split(/\t/);
-    print $taxid;
     $gitaxidhash{$gi} = $taxid;
 }
 #-----------------------------------------------------------------------------------------------------------------------------
