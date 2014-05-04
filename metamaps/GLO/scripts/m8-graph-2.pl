@@ -4,9 +4,12 @@ use strict;
 use v5.10;
 use autodie;
 
+die "usage: m8-graph-2.pl <m8-graph-2 output> <neo4j server address>\n" unless $#ARGV==1;
+
 use REST::Neo4p;
 use REST::Neo4p::Query;
-REST::Neo4p->connect($server);
+
+REST::Neo4p->connect($ARGV[1]);
 
 my %basetaxahash;
 
@@ -29,11 +32,16 @@ foreach my $basetaxa (keys %basetaxahash) {
 	}
     }
 
-seek INPUT 0,0;
+seek INPUT,0,0;
 
 while(<INPUT>){
     chomp;
     my ($read, $gi, $basetaxa, $bitscore)  = split /\t/;
-    say "$_\t$basetaxahash{$basetaxa}";
+    if (/READ/){
+    	say "$_\tDESIRED_RANKID";
+    	
+    }else{
+    	say "$_\t$basetaxahash{$basetaxa}";
+    }
 }
 close INPUT;
