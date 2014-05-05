@@ -21,6 +21,8 @@ if($. != 1) { #Skips header
     $basetaxahash{$basetaxa}++;
     }
 }
+say 'Basetaxa are all stored in hash ...';
+say 'Now querying graphDB';
 
 my $stmt='start basetaxa=node:ncbitaxid(taxid={taxids}) match basetaxa-[:childof*]->(genus:`genus`) return genus.taxid';
 
@@ -31,6 +33,8 @@ foreach my $basetaxa (keys %basetaxahash) {
 		$basetaxahash{$basetaxa} = $result->[0]; #i need to not push empty returns
 	}
     }
+
+say 'Assigned genus rank to basetaxa';
 
 seek INPUT,0,0;
 
