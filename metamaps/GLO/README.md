@@ -1,14 +1,14 @@
 GLOgen: A plugin for LCA metagenomics
 ======
 GLOgen is a part of a suite of command-line tools meant to help in the analysis of metagenomic sequencing data. 
-GLOgen displays "lost" data when carrying out LCA algorithms in metagenomics. Reads which not summarisable at the genus (parameter specifiable) rank in the taxonomic tree can be annotated with the combination of genera it passes through before being LCA-ed.
+GLOgen displays "lost" data when carrying out LCA algorithms in metagenomics. Reads which are not summarisable at the genus (parameter specifiable) rank in the taxonomic tree can be annotated with the combination of genera it passes through before being LCA-ed.
 
 GLOgen generates for each unique query: 
 1. a GLO signature 
 
 Using GLOgen
 ------
-1. Run Rapsearch or any other blast-like annoation software to give tabbed blast output
+1. Run Rapsearch or any other blast-like annotation software to give tabbed blast output
 This generates the sequences annotation against the specified database ie. NR. 
 
 ```
@@ -57,12 +57,13 @@ Installation
 * [Boost C++ library](http://www.boost.org/)	
 
 ######Boost Installation
-...Note you need to install the following libraries:
-..* serialization 
-..* thread 
-..* system 
-..* chrono 
+**Note** you need to install the following boost libraries:
+* serialization 
+* thread 
+* system 
+* chrono 
 
+Instructions
 ```
 bootstrap.sh --prefix=$HOME/<path to your installation dir> --libdir=$HOME/local/lib --with-libraries=signals,thread,python,system,serialization,chrono
 ```
