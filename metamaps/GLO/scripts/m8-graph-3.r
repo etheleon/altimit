@@ -8,8 +8,10 @@ data=read.table(args[1], sep="\t",comment.char="",h=T)
 data=data[complete.cases(data),]
 data=tbl_df(data)
 
-data %.%
+summary2=data %.%
 group_by(READ) %.% 
+group_by(DESIRED_RANKID) %.% 
+summarise(n=n())
 
 data2=setNames(ddply(data, "READ", function(x) { 
 GLO=paste(sort(unique(as.integer(x$DESIRED_RANKID))), collapse="_")
