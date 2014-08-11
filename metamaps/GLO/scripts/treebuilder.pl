@@ -13,10 +13,11 @@ REST::Neo4p->connect($ARGV[1]);
 my %basetaxahash;
 
 open my $IN, $ARGV[0];
-while(<$IN>) { 
+LINE:while(<$IN>) { 
 if($. != 1) { #Skips header
     chomp;
     my ($read, $gi, $basetaxa, $bitscore)  = split /\t/;
+    next LINE if $basetaxa =="";
     unless (exists $basetaxahash{$basetaxa}) {
     $basetaxahash{$basetaxa}=$basetaxa;
     	}
@@ -49,18 +50,20 @@ foreach my $basetaxa (keys %basetaxahash) {
 	}
     }
     my @tree;			#for storing the taxastring
+    push(@tree, $basetaxa);
     foreach (@ranks) { 
     	if(exists $rankhash{$_}){push(@tree, "$rankhash{$_}")}else{push(@tree,"NA")}
     }
     $basetaxahash{$basetaxa} = join("_" , @tree);
 }
 #	foreach(keys %basetaxahash) {say "$_\t$basetaxahash{$_}"}
-seek $IN,0,0;
+close $IN;
+open my $IN, $ARGV[0];
 while(<$IN>){
     chomp;
     my ($read, $gi, $basetaxa, $bitscore)  = split /\t/;
-    if (/READ/){
-    	say "$_\tTREE:GENUS_FAMILY_ORDER_CLASS_PHYLUM";
+    if ($. == 1){
+    	say "$_\tTREE";
     }else{
     	say "$_\t$basetaxahash{$basetaxa}";
     }

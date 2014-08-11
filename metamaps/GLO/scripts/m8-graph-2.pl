@@ -4,7 +4,7 @@ use strict;
 use v5.10;
 use autodie;
 
-die "usage: m8-graph-2.pl <m8-graph-2 output> <neo4j server address>\n" unless $#ARGV==1;
+die "usage: m8-graph-2.pl <m8-graph-1 output> <neo4j server address>\n" unless $#ARGV==1;
 
 use REST::Neo4p;
 use REST::Neo4p::Query;
@@ -21,8 +21,8 @@ if($. != 1) { #Skips header
     $basetaxahash{$basetaxa}++;
     }
 }
-say 'Basetaxa are all stored in hash ...';
-say 'Now querying graphDB';
+say '#Basetaxa are all stored in hash ...';
+say '#Now querying graphDB';
 
 my $stmt='start basetaxa=node:ncbitaxid(taxid={taxids}) match basetaxa-[:childof*]->(genus:`genus`) return genus.taxid';
 
@@ -34,7 +34,7 @@ foreach my $basetaxa (keys %basetaxahash) {
 	}
     }
 
-say 'Assigned genus rank to basetaxa';
+say '#Assigned genus rank to basetaxa';
 
 seek INPUT,0,0;
 

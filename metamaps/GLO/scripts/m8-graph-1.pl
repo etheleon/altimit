@@ -22,7 +22,9 @@ while(<GITAXID>) {
 my $current_query; 
 my $threshold;
 
-say (join "\t", qw/READ GI BASETAXA BITSCORE/);
+#open OUTPUT, join(".", $meight, "m8-graph-1.output");
+say (join "\t", qw/QUERY GI BASETAXA BITSCORE/);	#HEADER
+
 open INPUT, $meight;
 while(<INPUT>){
     if(!/^\#/){	#Skips rapsearch headers

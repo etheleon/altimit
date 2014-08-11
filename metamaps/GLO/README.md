@@ -1,7 +1,7 @@
 GLOgen: A plugin for LCA metagenomics
 ======
 GLOgen is a part of a suite of command-line tools meant to help in the analysis of metagenomic sequencing data. 
-GLOgen displays "lost" data when carrying out LCA algorithms in metagenomics. Reads which are not summarisable at the genus (parameter specifiable) rank in the taxonomic tree can be annotated with the combination of genera it passes through before being LCA-ed.
+GLOgen considers"lost" data when carrying out LCA algorithms in metagenomics. Reads which are not summarisable at the genus (parameter specifiable) rank in the taxonomic tree can be annotated with the combination of genera it passes through before being LCA-ed.
 
 GLOgen generates for each unique query: 
 1. a GLO signature 
